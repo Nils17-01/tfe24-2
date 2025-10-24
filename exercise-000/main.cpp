@@ -14,6 +14,9 @@ auto main(int argc, char **argv) -> int
     fmt::print("Hello, {}!\n", tfe24::PROJECT_NAME);
 
     /* INSERT YOUR CODE HERE */
+    int x = 10;
+    int* p = &x;
+    fmt::print("dein lümmel ist {} cm lang!\n", *p);
 
     return 0; /* exit gracefully*/
 }
