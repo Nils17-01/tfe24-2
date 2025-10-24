@@ -7,6 +7,7 @@ message( STATUS "Catch2 Tests included" )
 add_executable( ${PROJECT_NAME}-tests
   000-Main.cpp
   001-TestCase.cpp
+  002-TestPoint.cpp
 )
 
 # Add libraries
@@ -14,6 +15,8 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                         fmt::fmt
                                         nlohmann_json::nlohmann_json
                                         Catch2::Catch2WithMain)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 add_catch2_test(
   TARGET ${PROJECT_NAME}-tests
