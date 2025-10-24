@@ -4,6 +4,7 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 #include <cmath>
+#include "Point.hpp"
 
 auto main(int argc, char **argv) -> int
 {
@@ -28,34 +29,6 @@ auto main(int argc, char **argv) -> int
      * More info at https://fmt.dev/latest/api.html
      */
     fmt::print("Hello, {}!\n", app.get_name());
-
-    // Klasse Point definieren (kann auch in Header ausgelagert werden)
-    class Point
-    {
-    public:
-        int x;
-        int y;
-
-        // Standardkonstruktor: setzt x=0, y=0
-        Point() : x(0), y(0) {}
-
-        // Parameterisierter Konstruktor: setzt x und y explizit
-        Point(int x_, int y_) : x(x_), y(y_) {}
-
-        // Verschiebt den Punkt um dx, dy
-        void move(int dx, int dy) { x += dx; y += dy; }
-
-        // Gibt den Punkt in der Form (x, y) aus
-        void print() const { fmt::print("({}, {})\n", x, y); }
-
-        // Optional: euklidischer Abstand zu einem anderen Punkt
-        double distance_to(const Point &other) const
-        {
-            double dx = static_cast<double>(x - other.x);
-            double dy = static_cast<double>(y - other.y);
-            return std::sqrt(dx * dx + dy * dy);
-        }
-    };
 
     // Beispielnutzung gemäß Readme
     Point p1(2, 3); // (2, 3)
