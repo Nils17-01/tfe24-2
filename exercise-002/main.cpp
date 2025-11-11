@@ -4,6 +4,11 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 
+/* Globale Variable im Data-Segment */
+int globalVar = 1;
+
+void foo() { fmt::print("Hello from foo!\n"); }
+
 auto main(int argc, char **argv) -> int
 {
     /**
@@ -28,7 +33,22 @@ auto main(int argc, char **argv) -> int
      */
     fmt::print("Hello, {}!\n", app.get_name());
 
-    /* INSERT YOUR CODE HERE */
+    /* Ausgabe von Wert und Adresse der globalen Variable */
+    fmt::print("globalVar = {} at address {}\n", globalVar, fmt::ptr(&globalVar));
+
+    int localVar = 2;
+    fmt::print("localVar = {} at address {}\n", localVar, fmt::ptr(&localVar));
+
+    int* heapVar = new int(3);
+    fmt::print("heapVar (value) = {} at address {}\n", *heapVar, fmt::ptr(heapVar));
+    fmt::print("address of pointer variable heapVar (where the pointer itself is stored) = {}\n", fmt::ptr(&heapVar));
+
+    /* free heap memory */
+    delete heapVar;
+
+    /* Funktion: Adresse im Code-Segment und Aufruf */
+    fmt::print("Adresse von foo: {}\n", fmt::ptr(&foo));
+    foo();
 
     return 0; /* exit gracefully*/
 }

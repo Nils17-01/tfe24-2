@@ -29,6 +29,15 @@ git push -u origin solution-002
 2. Geben Sie im `main` den Wert und die Adresse von `globalVar` mit `fmt::print` aus.
 3. Beobachten Sie: Globale Variablen liegen im **Data-Segment**.
 
+**Beispielausführung (Beispielantwort):**
+
+```text
+Hello, ./build/bin/exercise-002!
+globalVar = 1 at address 0x5dad8c4f0488
+```
+
+Die konkrete Adresse kann je nach System und Ausführung variieren, zeigt aber, dass die Variable eine feste Adresse im Data-Segment besitzt.
+
 ---
 
 ### Teil 2: Lokale Variablen (Stack)
