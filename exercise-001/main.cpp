@@ -13,7 +13,13 @@ auto main(int argc, char **argv) -> int
      */
     fmt::print("Hello, {}!\n", tfe24::PROJECT_NAME);
 
-    /* INSERT YOUR CODE HERE */
+    int x = 10;
+    int& r = x;
+    fmt::print("Die Variable x hat den Wert {}.\n", x);
+    fmt::print("Die Variable r hat den Wert {}.\n", r);
+    r = 42;
+    fmt::print("Die Variable x hat den Wert {}.\n", x);
+    fmt::print("Die Variable r hat den Wert {}.\n", r);
 
     return 0; /* exit gracefully*/
 }
